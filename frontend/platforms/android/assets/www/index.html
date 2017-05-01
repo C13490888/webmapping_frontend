@@ -112,18 +112,7 @@
             </div>
 
             <div data-role="main" class="ui-content">
-                <div id="beforelocate">
-                    <p style="text-align:center;">Find Pay'N'Display Machines</p>
-                    <form id="findnearest" method="get" data-ajax="false">
-                      <input type="range" name="radius" id="radius" value="0" min="0" max="1000" step="25" data-highlight="true">
-                      <p style="text-align:center;">meters from me</p>
-                      <div align="center" class="ui-field-contain">
-                        <input type="submit" data-inline="true" value="Search" id="submitfindnearest" style="align:center;text-align:center;"></input>
-                      </div>
-                    </form>
-                </div>
-                <div id="afterlocate">
-                </div>
+                <p></p>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h1>Machines Near Me</h1>
@@ -194,16 +183,13 @@
             </div>
 
             <div data-role="main" class="ui-content">
-                <div id="beforesearchoutlet">
                 <p style="text-align:center">Search for a Pay'N'Display Outlet by entering a location below</p>
-                <form id="searchoutlet" method="get" data-ajax="false">
+                <form method="post" action="/action_page_post.php">
                   <div align="center" class="ui-field-contain">
-                    <input name="search" id="search" placeholder="Enter Location" style="align:center;text-align:center;"></input>
-                    <input type="submit" data-inline="true" value="Search" id="submitsearchoutlet" style="align:center;text-align:center;"></input>
+                    <input name="location" id="location" placeholder="Enter Location" style="margin:0 auto;margin-right:auto;align:center;text-align:center;"></input>
+                    <input type="submit" data-inline="true" value="Submit"style="margin:0 auto;margin-right:auto;align:center;text-align:center;"></input>
                   </div>
                 </form>
-                </div>
-                <div id="aftersearchoutlet" style="align:center;text-align:center;height:450px;"></div>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h1>Search for Outlets</h1>
