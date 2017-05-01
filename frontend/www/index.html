@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+       <!-- Include meta tag to ensure proper rendering and touch zooming -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Include jQuery Mobile stylesheets -->
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <!-- Include the jQuery library -->
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <!-- Include the jQuery Mobile library -->
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <title>Hello World</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <div data-role="page" id="machinesearch">
+            <div data-role="panel" id="machinesearchpanel" data-display="overlay"> 
+                <ul data-role="listview" data-icon="false">
+                  <li><a href="#" data-rel="close">Search</a></li>
+                  <li><a href="#machinenear" data-rel="close">Near Me</a></li>
+                  <li><a href="#machinefavourites" data-rel="close">Favourites</a></li>
+                </ul>
+            </div> 
+
+            <div data-role="header">
+                <a href="#machinesearchpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+                <h1>PNDFind</h1>
+                <div data-role="navbar">
+                  <ul>
+                    <li><a href="#" class="ui-btn-active ui-state-persist">Machines</a></li>
+                    <li><a href="#outletsearch">Outlets</a></li>
+                  </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>Machine Search</p>
+            </div>
+            <div data-role="footer">
+                <h1>Page Footer</h1>
+            </div> 
+        </div>
+
+        <div data-role="page" id="machinenear">
+            <div data-role="panel" id="machinenearpanel" data-display="overlay"> 
+                <ul data-role="listview" data-icon="false">
+                  <li><a href="#machinesearch" data-rel="close">Search</a></li>
+                  <li><a href="#" data-rel="close">Near Me</a></li>
+                  <li><a href="#machinefavourites" data-rel="close">Favourites</a></li>
+                </ul>
+            </div> 
+
+            <div data-role="header">
+                <a href="#machinenearpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+                <h1>PNDFind</h1>
+                <div data-role="navbar">
+                  <ul>
+                    <li><a href="#" class="ui-btn-active ui-state-persist">Machines</a></li>
+                    <li><a href="#outletnear">Outlets</a></li>
+                  </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>Machines Near Me</p>
+            </div>
+            <div data-role="footer">
+                <h1>Page Footer</h1>
+            </div> 
+        </div>
+
+        <div data-role="page" id="machinefavourites">
+            <div data-role="panel" id="machinefavouritespanel" data-display="overlay"> 
+                <ul data-role="listview" data-icon="false">
+                  <li><a href="#machinesearch" data-rel="close">Search</a></li>
+                  <li><a href="#machinenear" data-rel="close">Near Me</a></li>
+                  <li><a href="#" data-rel="close" data-rel="close">Favourites</a></li>
+                </ul>
+            </div> 
+
+            <div data-role="header">
+                <a href="#machinefavouritespanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+                <h1>PNDFind</h1>
+                <div data-role="navbar">
+                  <ul>
+                    <li><a href="#" class="ui-btn-active ui-state-persist">Machines</a></li>
+                    <li><a href="#outletfavourites">Outlets</a></li>
+                  </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>Machine Favourites</p>
+            </div>
+            <div data-role="footer">
+                <h1>Page Footer</h1>
+            </div> 
+        </div>
+
+        <div data-role="page" id="outletsearch">
+            <div data-role="panel" id="outletsearchpanel" data-display="overlay"> 
+                <ul data-role="listview" data-icon="false">
+                  <li><a href="#" data-rel="close" data-rel="close">Search</a></li>
+                  <li><a href="#outletnear" data-rel="close">Near Me</a></li>
+                  <li><a href="#outletfavourites" data-rel="close">Favourites</a></li>
+                </ul>
+            </div> 
+
+            <div data-role="header">
+                <a href="#outletsearchpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+                <h1>PNDFind</h1>
+                <div data-role="navbar">
+                  <ul>
+                    <li><a href="#machinesearch">Machines</a></li>
+                    <li><a href="#" class="ui-btn-active ui-state-persist">Outlets</a></li>
+                  </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>Outlet Search</p>
+            </div>
+            <div data-role="footer">
+                <h1>Page Footer</h1>
+            </div> 
+        </div> 
+
+        <div data-role="page" id="outletnear">
+            <div data-role="panel" id="outletnearpanel" data-display="overlay"> 
+                <ul data-role="listview" data-icon="false">
+                  <li><a href="#outletsearch" data-rel="close">Search</a></li>
+                  <li><a href="#" data-rel="close" data-rel="close">Near Me</a></li>
+                  <li><a href="#outletfavourites" data-rel="close">Favourites</a></li>
+                </ul>
+            </div> 
+
+            <div data-role="header">
+                <a href="#outletnearpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+                <h1>PNDFind</h1>
+                <div data-role="navbar">
+                  <ul>
+                    <li><a href="#machinenear">Machines</a></li>
+                    <li><a href="#" class="ui-btn-active ui-state-persist">Outlets</a></li>
+                  </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>Outlets Near Me</p>
+            </div>
+            <div data-role="footer">
+                <h1>Page Footer</h1>
+            </div> 
+        </div>
+
+        <div data-role="page" id="outletfavourites">
+            <div data-role="panel" id="outletfavouritespanel" data-display="overlay"> 
+                <ul data-role="listview" data-icon="false">
+                  <li><a href="#outletsearch" data-rel="close">Search</a></li>
+                  <li><a href="#outletnear" data-rel="close">Near Me</a></li>
+                  <li><a href="#" data-rel="close">Favourites</a></li>
+                </ul>
+            </div> 
+
+            <div data-role="header">
+                <a href="#outletfavouritespanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+                <h1>PNDFind</h1>
+                <div data-role="navbar">
+                  <ul>
+                    <li><a href="#machinefavourites">Machines</a></li>
+                    <li><a href="#" class="ui-btn-active ui-state-persist">Outlets</a></li>
+                  </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>Outlet Favourites</p>
+            </div>
+            <div data-role="footer">
+                <h1>Page Footer</h1>
+            </div> 
+        </div>
+
+    </body>
+</html>
