@@ -1,6 +1,8 @@
 var mymap;
 var currentmarker;
 var machine;
+var currentlat;
+var currentlong;
 
 $(document).on("click", "#submitsearchmachine", function(e) {
     e.preventDefault();
@@ -133,6 +135,86 @@ $(document).on('pagebeforeshow', '#outletsearch', function ()
         mymap.on('popupopen', function(e) {
           currentmarker = e.popup._source;
           console.log(currentmarker.properties.eyed);
+        });
+        console.log(mymap);
+ });
+
+$(document).on("click", "#submitfindnearest", function(e) {
+    e.preventDefault();
+    var onSuccess = function(position) {
+        console.log(position.coords.latitude);
+        console.log(position.coords.longitude);
+        currentlat=position.coords.latitude;
+        currentlong=position.coords.longitude;
+        $.get("https://webemapping.herokuapp.com/machines/point", {radius:radius,latitude:currentlat,longitude:currentlong})
+        .done(function(data) {
+            console.log(data);
+            var markers = [];
+            data.forEach( function (arrayItem)
+            {
+                console.log(arrayItem['latitude']);
+                console.log(arrayItem['longitude']);
+                var marker = L.marker([arrayItem['latitude'], arrayItem['longitude']])
+                marker.properties = {}
+                marker.properties.eyed = arrayItem['id']
+                marker.properties.latitude = arrayItem['latitude']
+                marker.properties.longitude = arrayItem['longitude']
+                marker.properties.tariff = arrayItem['tariff']
+                marker.properties.hours = arrayItem['hours']
+                marker.properties.zone = arrayItem['zone']
+                marker.properties.loc = arrayItem['location']
+                marker.properties.nospaces = arrayItem['nospaces']
+                var addedMarker= marker.addTo(mymap).bindPopup('<strong>Location: </strong>'+arrayItem['location']+'<br>'+'<strong>Hours: </strong>'+arrayItem['hours']+'<br>'+'<strong>Spaces: </strong>'+arrayItem['nospaces']+'<br/><a id="moredetails" value="'+arrayItem['id']+'" style="text-align:center">More Details</a>&nbsp;<a id="favourite" value="'+arrayItem['id']+'"style="text-align:center">Add to Favourites</a>');
+                markers.push(marker)
+            });
+            $("#beforelocate").hide();
+            $("#afterlocate").show();
+            mymap.invalidateSize(true); 
+            mymap.panTo(new L.LatLng(currentlat, currentlong));    
+            var usermarker = L.marker([currentlat,currentlong]); 
+            var circle = L.circle([currentlat, currentlong], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: radius
+            }).addTo(mymap);  
+            var addeduser = usermarker.addTo(mymap).bindPopup("Your current location").openPopup();   
+            console.log(mymap);
+        });
+    };
+    function onError(error) {
+        console.log(error.code);
+        console.log(error.message);
+    }
+    var options = { enableHighAccuracy: true };
+
+    var radius = $('#radius').val()
+    console.log(radius);
+    navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+    $('#findnearest').each(function(){
+        this.reset();
+    }); 
+});
+
+$(document).on('pagebeforeshow', '#machinenear', function () 
+     {        
+        if(mymap!=null){
+            mymap.off();
+            mymap.remove();
+        }
+        $("#beforelocate").show();
+        $("#afterlocate").hide();
+        mymap = L.map('afterlocate').setView([53.350140,-6.266155], 12);
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(mymap);
+        mymap.on('popupopen', function(e) {
+          try{
+            currentmarker = e.popup._source;
+            console.log(currentmarker.properties.eyed);
+          }catch(error){
+            currentmarker = e.popup._source;
+          }
         });
         console.log(mymap);
  });
