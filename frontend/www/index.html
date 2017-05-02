@@ -151,7 +151,9 @@
             </div>
 
             <div data-role="main" class="ui-content">
-                <p></p>
+                <ul data-role="listview" id="machinelist" data-icon="false" data-inset="true" style="margin: 0 auto;">
+
+                </ul>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h1>My Favourite Machines</h1>
@@ -165,7 +167,7 @@
 
             <div data-role="main" class="ui-content">
                 <ul data-role="listview" data-icon="false" data-inset="true" style="margin: 0 auto;">
-                  <li id="machinedetails"></li>
+                  <li id="machinedetails" style="white-space: normal;"></li>
                 </ul>
             </div>
             <div data-role="footer" data-position="fixed">
@@ -231,7 +233,18 @@
             </div>
 
             <div data-role="main" class="ui-content">
-                <p></p>
+                <div id="beforelocateoutlet">
+                    <p style="text-align:center;">Find Pay'N'Display Outlets</p>
+                    <form id="findnearestoutlet" method="get" data-ajax="false">
+                      <input type="range" name="radiusoutlet" id="radiusoutlet" value="0" min="0" max="5000" step="25" data-highlight="true">
+                      <p style="text-align:center;">meters from me</p>
+                      <div align="center" class="ui-field-contain">
+                        <input type="submit" data-inline="true" value="Search" id="submitfindnearestoutlet" style="align:center;text-align:center;"></input>
+                      </div>
+                    </form>
+                </div>
+                <div id="afterlocateoutlet" style="align:center;text-align:center;height:450px;">
+                </div>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h1>Outlets Near Me</h1>
@@ -259,7 +272,9 @@
             </div>
 
             <div data-role="main" class="ui-content">
-                <p></p>
+                <ul data-role="listview" id="outletlist" data-icon="false" data-inset="true" style="margin: 0 auto;">
+
+                </ul>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h1>My Favourite Outlets</h1>

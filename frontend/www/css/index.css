@@ -82,6 +82,10 @@ body {
     }
 }
 
+.wrap{
+    white-space: normal !important;
+}
+
 h1 {
     font-size:24px;
     font-weight:normal;
@@ -90,12 +94,6 @@ h1 {
     padding:0px;
     text-align:center;
 }
-
-li{
-    width:100%;
-    word-wrap: break-word;
-}
-
 .event {
     border-radius:4px;
     -webkit-border-radius:4px;
